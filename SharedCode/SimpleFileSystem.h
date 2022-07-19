@@ -12,5 +12,6 @@ public:
 	virtual int deleteFile(std::string fileName) override;
 	virtual AbstractFile* openFile(std::string fileName) override;
 	virtual int closeFile(AbstractFile* absFile) override;
+	virtual set<string> getFileNames() override;
 };
 

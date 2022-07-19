@@ -4,6 +4,10 @@
 #include <utility>
 #include "ImageFile.h"
 #include "TextFile.h"
+#include<iostream>
+#include <iomanip>
+
+using namespace std;
 
 int SimpleFileSystem::addFile(std::string fileName, AbstractFile* absFile) {
 	
@@ -70,5 +74,25 @@ int SimpleFileSystem::closeFile(AbstractFile* absFile) {
 		else {
 			return AbstractFileSystem::fileNotOpen;
 		}
+	
+}
+
+set<string> SimpleFileSystem::getFileNames() {
+	int count = 0;
+	set<string> fileNames;
+	string fileName;
+	for (auto file = files.begin(); file != files.end(); ++file) {
+		fileName = file->first;
+		if (count == 0) {
+			cout << setw(20) << fileName;
+			++count;
+		}
+		else if (count == 1) {
+			cout << setw(20) << fileName << endl;
+			count = 0;
+		}
+		fileNames.insert(fileName);
+	}
+	return fileNames;
 	
 }

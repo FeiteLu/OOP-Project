@@ -2,6 +2,7 @@
 #include <string>
 #include "AbstractFile.h"
 #include "AbstractFileFactory.h"
+#include <set>
 // declaration of the interface all file systems provide goes here
 
 class AbstractFileSystem {
@@ -10,7 +11,7 @@ public:
 	virtual int deleteFile(std::string fileName) = 0;
 	virtual AbstractFile* openFile(std::string fileName) = 0;
 	virtual int closeFile(AbstractFile* absFile) = 0;
-
+	virtual set<string> getFileNames() = 0;
 
 protected:
 	enum fileStuff {
