@@ -1,6 +1,6 @@
 Answer studio 16 questions here
 
-1.Team members: Kevin Zou, Jessica Sheldon, Feite Lu, Klein Morrow
+1.Team members:  Feite Lu, Klein Morrow
 
 2. The process of declaring an interface in C++ involves creating a base class which has the required member variables shared by the derived classes. The public functions are also declared as virtual in 
 order to support polymorphism and allow for derived classes to implement their own versions of the virtual functions in the base class. 

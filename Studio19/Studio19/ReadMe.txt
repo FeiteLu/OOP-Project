@@ -1,5 +1,5 @@
 studio 19 answers here
-1.Team Members: Feite Lu, Klein Morrow, Jessica Sheldon, Kevin Zou
+1.Team Members: Feite Lu, Klein Morrow
 
 2. I ran tests on both concrete file types of ImageFile and TextFile. 
 Each test I did I put printed the file before I wrote (which was empty as I used basic constructor) and the file after I wrote some input into it.

@@ -1,5 +1,5 @@
 Studio 21 ReadMe.txt 
-1. Members: Kevin Zou, Klein Morrow, Jessica Sheldon, Feite Lu
+1. Members: Klein Morrow, Feite Lu
 
 2. It is important to declare a virtual destructor in the base class as it takes care of possible memory issues (memory leaks) that could occur in the superclasses derived from the base class.
 

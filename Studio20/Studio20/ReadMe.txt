@@ -1,6 +1,6 @@
 Studio 20 ReadMe.txt
 
-1) Kevin Zou, Klein Morrow, Philip Lu, Jessica Sheldon
+1) Klein Morrow, Feite Lu
 
 2) Because if you don't call delete on the proxy, you might leak the real object that it points to.
 Whenever you call delete on the pointer to the proxy, you also have to call delete on the object it points to

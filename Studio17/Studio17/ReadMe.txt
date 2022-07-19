@@ -1,5 +1,5 @@
 Answer the studio 17 questions here.
-1) Philip, Kevin, Klein, Jessica
+1) Feite Lu, Klein Morrow
 2) Once we finished the code, we tested the ImageFile class by creating an ImageFile object and passing
 it into various functions of our SimpleFileSystem. We passed a right vector of characters and it returned
 0 for success, indidcating that this function and the ImageFile class worked correctly. When we tried

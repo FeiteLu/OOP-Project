@@ -1,5 +1,5 @@
 studio 18 answers here
-1.Team Members: Feite Lu, Klein Morrow, Jessica Sheldon, Kevin Zou
+1.Team Members: Feite Lu, Klein Morrow
 
 2.To create a new file system implementation, we just need the same functions as the abstract file system and override the
 functions in the new file system declaration. In the new function definition, we use the new file types we want to use in this
