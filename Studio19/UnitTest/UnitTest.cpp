@@ -408,6 +408,8 @@ namespace UnitTest
 		}
 	};
 
+	
+
 	TEST_CLASS(basicDisplayVisitor) {
 	public:
 		TEST_METHOD(visitTextFile) { // tests output of basic display visitor for a text file, expects the contents of the file
@@ -454,7 +456,7 @@ namespace UnitTest
 			Assert::AreEqual(5, count);
 		}
 	};
-
+	
 	TEST_CLASS(metadataDisplayVisitor) {
 	public:
 		TEST_METHOD(visitTextFile) { // tests the output of the metadata display visitor for a text file, expects the filename, type and size to be included in the print statement

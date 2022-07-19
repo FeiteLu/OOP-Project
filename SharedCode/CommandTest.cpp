@@ -3,13 +3,11 @@
 #include "CommandTest.h"
 using namespace std;
 
-CommandTest::CommandTest(AbstractFileSystem* _afs): afs(_afs)
-{
-}
+CommandTest::CommandTest(AbstractFileSystem* _afs) : afs(_afs) {}
 
 int CommandTest::execute(string info)
 {
-	if (info == "")
+	if (info == " ")
 	{
 		cout << "command-test-no-info" << endl;
 	}
