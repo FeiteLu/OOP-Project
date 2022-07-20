@@ -19,7 +19,14 @@ int CatCommand::execute(string file_name) {
 		if (c == '-'&& ++c == 'a') {
 			istringstream iss(file_name);
 			iss >> file_name;
-			AbstractFile* file = system->openFile(file_name);
+			AbstractFile* file;
+			try {
+				file = system->openFile(file_name);
+			}
+			catch (...) {
+				return static_cast<int>(cat_state::file_not_exist);
+			}
+			
 			file->read();
 			cout << "Enter data you would like to append to the existing file. Enter :wq to save the file and exit, enter :q to exit without saving." << endl;
 			
@@ -49,7 +56,13 @@ int CatCommand::execute(string file_name) {
 		
 		}
 	}
-	AbstractFile* file = system->openFile(file_name);
+	AbstractFile* file;
+	try {
+		file = system->openFile(file_name);
+	}
+	catch (...) {
+		return static_cast<int>(cat_state::file_not_exist);
+	}
 	cout << "Enter data you would like to write to the file. Enter :wq to save the file and exit, enter :q to exit without saving." << endl;
 	while (getline(cin, input)) {
 		if (input == ":wq") {
@@ -57,7 +70,12 @@ int CatCommand::execute(string file_name) {
 			for (char c : save_input) {
 				input_vec.push_back(c);
 			}
-			file->write(input_vec);
+			try {
+				file->write(input_vec);
+			}
+			catch (...) {
+				return static_cast<int>(cat_state::write_file_error);
+			}
 			return static_cast<int>(cat_state::success);
 		}
 

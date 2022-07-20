@@ -20,19 +20,19 @@ int main()
 {	
 	AbstractFileSystem* sys = new SimpleFileSystem;
 	AbstractFileFactory* fac = new SimpleFileFactory;
-	vector<AbstractCommand*> renameCommands;
-	renameCommands.push_back(new CopyCommand(sys));
-	renameCommands.push_back(new RemoveCommand(sys));
-	AbstractCommand* rn = new MacroCommand(renameCommands, new RenameParsingStrategy());
+	MacroCommand* macro = new MacroCommand(sys);
+	macro->addCommand(new CopyCommand(sys));
+	macro->addCommand(new RemoveCommand(sys));
+	macro->setParseStrategy(new RenameParsingStrategy());
 	CommandPrompt cmd;
 	cmd.setFileSystem(sys);
-	cmd.addCommand("rn", rn);
+	cmd.addCommand("rn", macro);
 
-	vector<AbstractCommand*> createEditCommands;
-	createEditCommands.push_back(new TouchCommand(sys, fac));
-	createEditCommands.push_back(new CatCommand(sys));
-	AbstractCommand* create_edit = new MacroCommand(createEditCommands, new CreateEditParsingStrategy());
-	cmd.addCommand("ce", create_edit);
+	MacroCommand* macro2 = new MacroCommand(sys);
+	macro2->addCommand(new TouchCommand(sys, fac));
+	macro2->addCommand(new CatCommand(sys));
+	macro2->setParseStrategy (new CreateEditParsingStrategy());
+	cmd.addCommand("ce", macro2);
 
 	cmd.addCommand("ls", new LSCommand(sys));
 	cmd.addCommand("rm", new RemoveCommand(sys));

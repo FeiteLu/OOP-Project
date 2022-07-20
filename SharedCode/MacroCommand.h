@@ -7,12 +7,13 @@
 
 class MacroCommand : public AbstractCommand {
 public:
-	MacroCommand(std::vector<AbstractCommand*>, AbstractParsingStrategy*);
+	MacroCommand(AbstractFileSystem*);
 	virtual int execute(std::string);
 	virtual void displayInfo();
 	void addCommand(AbstractCommand*);
 	void setParseStrategy(AbstractParsingStrategy*);
 private:
+	AbstractFileSystem* system;
 	std::vector<AbstractCommand*> commands;
 	AbstractParsingStrategy* strategy;
 };

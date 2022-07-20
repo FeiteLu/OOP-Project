@@ -1,7 +1,7 @@
 #include "MacroCommand.h"
 #include <iostream>
 
-MacroCommand::MacroCommand(vector<AbstractCommand*> command, AbstractParsingStrategy* strat): commands(command), strategy(strat) {
+MacroCommand::MacroCommand(AbstractFileSystem* in_sys): system(in_sys),commands(0), strategy(nullptr) {
 	
 }
 
