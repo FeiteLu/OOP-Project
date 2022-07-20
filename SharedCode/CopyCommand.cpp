@@ -17,9 +17,20 @@ int CopyCommand::execute(string file_names) {
 	string old_file, new_file;
 	iss >> old_file;
 	if (iss >> new_file) {
-		new_file += old_file.substr(old_file.size() - 5, 4);
+		new_file += old_file.substr(old_file.size() - 4, 4);
+		if (new_file == old_file) {
+			return static_cast<int>(copy_state::same_name_for_two_files);
+		}
+		AbstractFile* copy = system->openFile(new_file);
+		if (copy != nullptr) {
+			system->closeFile(copy);
+			return static_cast<int>(copy_state::file_already_exist);
+		}
 		AbstractFile* original_file = system->openFile(old_file);
-		AbstractFile* file_copy = original_file->clone();
+		if (original_file == nullptr) {
+			return static_cast<int>(copy_state::file_not_exist);
+		}
+		AbstractFile* file_copy = original_file->clone(new_file);
 		system->closeFile(original_file);
 		try {
 			system->addFile(new_file, file_copy);

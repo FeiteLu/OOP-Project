@@ -8,6 +8,7 @@ using namespace std;
 // TextFile declaration goes here
 
 class TextFile : public AbstractFile {
+	friend AbstractFile* clone();
 public:
 	TextFile(string);
 	virtual unsigned int getSize();
@@ -16,9 +17,12 @@ public:
 	virtual int append(std::vector<char>);
 	virtual vector<char> read();
 	virtual void accept(AbstractFileVisitor*);
-	virtual AbstractFile* clone();
+	virtual AbstractFile* clone(string);
+
+
 private:
 	vector<char> contents;
 	string name;
+	
 
 };

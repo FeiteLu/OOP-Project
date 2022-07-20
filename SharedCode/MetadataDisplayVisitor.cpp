@@ -13,17 +13,17 @@ void MetadataDisplayVisitor::visit(ImageFile* file) {
 	type = "image";
 	name = file->getName();
 	size = file->getSize();
-	cout << setw(15) << type;
-	cout << setw(15) << name;
-	cout << setw(15) << size << endl;
+	cout << setw(name.size() + 1) << name;
+	cout << setw(name.size() + 1) << type;
+	cout << setw(name.size() + 1) << size << endl;
 }
 
 void MetadataDisplayVisitor::visit(TextFile* file) {
 	type = "text";
 	name = file->getName();
 	size = file->getSize();
-	cout << setw(15) << type;
-	cout << setw(15) << name;
-	cout << setw(15) << size << endl;
+	cout << setw(name.size() + 1) << name;
+	cout << setw(name.size() + 1) << type;
+	cout << setw(name.size() + 1) << size << endl;
 }
 

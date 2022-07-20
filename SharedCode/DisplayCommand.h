@@ -15,4 +15,5 @@ enum class display_state {
 	success = 0,
 	error_occurs = 1,
 	no_file_name_argument = 2,
+	file_not_found = 3
 };

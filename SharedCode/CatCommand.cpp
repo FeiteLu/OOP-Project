@@ -1,6 +1,7 @@
 #include "CatCommand.h"
 #include <iostream>
 #include <sstream>
+#include "DisplayCommand.h"
 
 
 using namespace std;
@@ -15,19 +16,21 @@ int CatCommand::execute(string file_name) {
 	if (file_name == " ") {
 		return static_cast<int>(cat_state::no_file_name_argument);
 	}
-	for (char c : file_name) {
-		if (c == '-'&& ++c == 'a') {
+	
+		if (file_name.substr(file_name.size()-2,2) == "-a") {
 			istringstream iss(file_name);
 			iss >> file_name;
 			AbstractFile* file;
-			try {
-				file = system->openFile(file_name);
-			}
-			catch (...) {
+			file = system->openFile(file_name);
+			if (file == nullptr) {
 				return static_cast<int>(cat_state::file_not_exist);
 			}
-			
-			file->read();
+			vector<char> contents = file->read();
+			string output;
+			for (char c: contents) {
+				output += c;
+			}
+			cout << output << endl;
 			cout << "Enter data you would like to append to the existing file. Enter :wq to save the file and exit, enter :q to exit without saving." << endl;
 			
 			while (getline(cin, input)) {
@@ -36,11 +39,15 @@ int CatCommand::execute(string file_name) {
 					for (char c : save_input) {
 						input_vec.push_back(c);
 					}
-					file->append(input_vec);
+					if (file->append(input_vec) != 0) {
+						return file->append(input_vec);
+					}
+					system->closeFile(file);
 					return static_cast<int>(cat_state::success);
 				}
 			   
 				if (input == ":q") {
+					system->closeFile(file);
 					return static_cast<int>(cat_state::success);
 				}
 
@@ -55,14 +62,15 @@ int CatCommand::execute(string file_name) {
 			
 		
 		}
-	}
+	
 	AbstractFile* file;
-	try {
-		file = system->openFile(file_name);
-	}
-	catch (...) {
+	file = system->openFile(file_name);
+	if (file == nullptr) {
 		return static_cast<int>(cat_state::file_not_exist);
 	}
+
+
+
 	cout << "Enter data you would like to write to the file. Enter :wq to save the file and exit, enter :q to exit without saving." << endl;
 	while (getline(cin, input)) {
 		if (input == ":wq") {

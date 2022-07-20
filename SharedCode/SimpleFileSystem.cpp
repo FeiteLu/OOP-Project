@@ -53,6 +53,7 @@ AbstractFile* SimpleFileSystem::openFile(std::string fileName) {
 			return nullptr;
 		}
 		else {
+
 			openFiles.insert(it->second);
 			return it->second;
 		}

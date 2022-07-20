@@ -21,6 +21,6 @@ vector<string> RenameParsingStrategy::parse(string file_names) {
 	iss >> old_name;
 	iss >> new_name;
 	arguments.push_back(file_names);
-	arguments.push_back(new_name);
+	arguments.push_back(old_name);
 	return arguments;
 }

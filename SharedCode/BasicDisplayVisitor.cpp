@@ -15,7 +15,7 @@ void BasicDisplayVisitor::visit(ImageFile* file) {
 	int dimensions = static_cast<int>(sqrt(size)); //check size?
 	for (int i = (dimensions - 1); i >= 0; --i) {
 		for (int j = 0; j < dimensions; ++j) {
-			int index = j * dimensions + i;
+			int index = i * dimensions + j;
 			/*if (contents[index] == ' ') {
 				cout << 'Y';
 			}
@@ -23,6 +23,7 @@ void BasicDisplayVisitor::visit(ImageFile* file) {
 				cout << contents[index];
 			}*/							// for debugging
 			cout << contents[index];
+			
 			//cout << output[(*file).createIndex(i, j)];
 		}
 		cout << endl;

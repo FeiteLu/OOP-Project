@@ -10,11 +10,9 @@ int MacroCommand::execute(std::string input) {
 	for (int index = 0; index < commands.size(); ++index) {
 		AbstractCommand* command = commands.at(index);
 		string argument = arguments.at(index);
-		try {
-			command->execute(argument);
-		}
-		catch (...) {
-			return static_cast<int>(macro_state::error);
+		int status = command->execute(argument);
+		if(status != 0){
+			return static_cast<int>(macro_state::error);	
 		}
 	}
 	return static_cast<int>(macro_state::success);

@@ -28,6 +28,7 @@ int main()
 	cmd.setFileSystem(sys);
 	cmd.addCommand("rn", macro);
 
+
 	MacroCommand* macro2 = new MacroCommand(sys);
 	macro2->addCommand(new TouchCommand(sys, fac));
 	macro2->addCommand(new CatCommand(sys));

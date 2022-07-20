@@ -13,20 +13,29 @@ int DisplayCommand::execute(string file_name) {
 	if (file_name == " ") {
 		return static_cast<int>(display_state::no_file_name_argument);
 	}
-	for (char c : file_name) {
-		if (c == '-' && ++c == 'd') {
+	
+		if (file_name.substr(file_name.size() - 2, 2) == "-d") {
 			istringstream iss(file_name);
 			iss >> file_name;
-			AbstractFile* file = system->openFile(file_name);
+			AbstractFile* file;
+			file = system->openFile(file_name);
+			if (file == nullptr) {
+				return static_cast<int>(display_state::file_not_found);
+			}
 			vector<char> contents = file->read();
 			for (char c : contents) {
 				cout << c;
 			}
+			cout << endl;
 			system->closeFile(file);
 			return static_cast<int>(display_state::success);
 		}
-	}
-	AbstractFile* file = system->openFile(file_name);
+	
+		AbstractFile* file;
+		file = system->openFile(file_name);
+		if (file == nullptr) {
+			return static_cast<int>(display_state::file_not_found);
+		}
 	AbstractFileVisitor* visitor = new BasicDisplayVisitor();
 	try {
 		file->accept(visitor);

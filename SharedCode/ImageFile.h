@@ -12,7 +12,7 @@ public:
 	virtual unsigned int getSize();
 	virtual string getName();
 	virtual void accept(AbstractFileVisitor*);
-	virtual AbstractFile* clone();
+	virtual AbstractFile* clone(string);
 private:
 	virtual int createIndex(int x_coord, int y_coord);
 	std::string name;

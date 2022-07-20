@@ -20,7 +20,7 @@ string PasswordProxy::passwordPrompt() {
 
 	string input;
 
-	getline(cin, input);
+	cin  >> input;
 
 	return input;
 
@@ -88,6 +88,9 @@ void PasswordProxy::accept(AbstractFileVisitor* vis) {
 
 }
 
-AbstractFile* PasswordProxy::clone() {
-	return new PasswordProxy(*this);
+AbstractFile* PasswordProxy::clone(string new_file) {
+	string pwd = this->password;
+	AbstractFile* copy_file = this->file->clone(new_file);
+	AbstractFile* copy = new PasswordProxy(copy_file, pwd);
+	return copy;
 }

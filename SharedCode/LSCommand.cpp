@@ -10,7 +10,7 @@ LSCommand::LSCommand(AbstractFileSystem* in_sys) {
 
 int LSCommand::execute(string option) {
 	int count = 0;
-	if (option == " ") {
+	if (option == " " || option == "") {
 		set<string> fileNames = system->getFileNames();
 		for (string fileName : fileNames) {
 			if (count == 0) {

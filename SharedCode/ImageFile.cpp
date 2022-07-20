@@ -76,6 +76,10 @@ void ImageFile::accept(AbstractFileVisitor* visitor) {
 	visitor->visit(this);
 }
 
-AbstractFile* ImageFile::clone() {
-	return new ImageFile(*this);
+AbstractFile* ImageFile::clone(string new_file) {
+	AbstractFile* copy = new ImageFile(new_file);
+	vector<char> contents = this->read();
+	contents.push_back(static_cast<char>(sqrt(contents.size())));
+	copy->write(contents);
+	return copy;
 }
