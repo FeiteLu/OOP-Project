@@ -87,3 +87,7 @@ void PasswordProxy::accept(AbstractFileVisitor* vis) {
 	}
 
 }
+
+AbstractFile* PasswordProxy::clone() {
+	return new PasswordProxy(*this);
+}

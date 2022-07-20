@@ -3,6 +3,7 @@
 #include "AbstractFileSystem.h"
 
 class LSCommand : public AbstractCommand{
+public:
 	LSCommand(AbstractFileSystem*);
 	virtual int execute(std::string);
 	virtual void displayInfo();

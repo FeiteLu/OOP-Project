@@ -39,12 +39,12 @@ vector<char> TextFile::read() {
 		output.push_back(k);
 	}
 	return output;
-	
-	/*for (char k : contents) {
-		cout << k;
-	}*/
 }
 
 void TextFile::accept(AbstractFileVisitor* visitor) {
 	visitor->visit(this);
+}
+
+AbstractFile* TextFile::clone() {
+	return new TextFile(*this);
 }

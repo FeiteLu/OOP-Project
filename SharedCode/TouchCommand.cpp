@@ -15,7 +15,7 @@ int TouchCommand::execute(std::string file_name) {
 	bool pwd_file = false;
 	AbstractFile* file = nullptr;
 	for (char c : file_name) {
-		if (c == '-' and ++c == 'p') {
+		if (c == '-' && ++c == 'p') {
 			istringstream iss(file_name);
 			iss >> file_name;
 			cout << "What is the password?" << endl;

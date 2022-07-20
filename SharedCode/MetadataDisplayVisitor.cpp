@@ -22,7 +22,7 @@ void MetadataDisplayVisitor::visit(TextFile* file) {
 	type = "text";
 	name = file->getName();
 	size = file->getSize();
-	cout <<setw(15) << type;
+	cout << setw(15) << type;
 	cout << setw(15) << name;
 	cout << setw(15) << size << endl;
 }

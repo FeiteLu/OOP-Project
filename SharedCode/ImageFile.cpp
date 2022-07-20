@@ -59,6 +59,7 @@ int ImageFile::createIndex(int x_coord, int y_coord) {
 }
 
 vector<char> ImageFile::read() {
+	
 	return contents;
 
 	/*for (int i = size - 1; i >= 0; --i) {
@@ -70,6 +71,11 @@ vector<char> ImageFile::read() {
 
 }
 
+
 void ImageFile::accept(AbstractFileVisitor* visitor) {
 	visitor->visit(this);
+}
+
+AbstractFile* ImageFile::clone() {
+	return new ImageFile(*this);
 }

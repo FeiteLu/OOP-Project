@@ -3,6 +3,7 @@
 #include "AbstractFileSystem.h"
 
 class RemoveCommand :public AbstractCommand {
+public:
 	RemoveCommand(AbstractFileSystem*);
 	virtual int execute(std::string);
 	virtual void displayInfo();

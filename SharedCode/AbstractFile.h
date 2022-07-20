@@ -17,7 +17,7 @@ public:
 	virtual string getName() = 0;
 	virtual void accept(AbstractFileVisitor*) = 0;
 	virtual ~AbstractFile() = default;
-
+	virtual AbstractFile* clone() = 0;
 };
 
 enum class returnType {

@@ -30,6 +30,7 @@ int LSCommand::execute(string option) {
 		for (string fileName : fileNames) {
 			AbstractFile* file = system->openFile(fileName);
 			file->accept(metaVisitor);
+			system->closeFile(file);
 		}
 		return static_cast<int>(LS_state::success);
 		

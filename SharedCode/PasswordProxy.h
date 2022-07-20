@@ -17,6 +17,7 @@ public:
 	unsigned int getSize();
 	string getName();
 	void accept(AbstractFileVisitor* vis);
+	virtual AbstractFile* clone();
 protected:
 	string passwordPrompt();
 	bool passwordCheck(string s);
