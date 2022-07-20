@@ -1,6 +1,8 @@
 #include "TouchCommand.h"
 #include "AbstractFileSystem.h"
 #include <iostream>
+#include <sstream>
+#include "PasswordProxy.h"
 
 using namespace std;
 
@@ -10,7 +12,24 @@ TouchCommand::TouchCommand(AbstractFileSystem* in_sys, AbstractFileFactory* in_f
 }
 
 int TouchCommand::execute(std::string file_name) {
-	AbstractFile* file = factory->createFile(file_name);
+	bool pwd_file = false;
+	AbstractFile* file = nullptr;
+	for (char c : file_name) {
+		if (c == '-' and ++c == 'p') {
+			istringstream iss(file_name);
+			iss >> file_name;
+			cout << "What is the password?" << endl;
+			string pwd;
+			cin >> pwd;
+			AbstractFile* file = factory->createFile(file_name);
+			PasswordProxy pwd_proxy(file,  pwd);
+			pwd_file = true;
+		}
+	}
+	if (pwd_file == false) {
+		AbstractFile* file = factory->createFile(file_name);
+	}
+	
 	if (file == nullptr) {
 		cout << "Error creating file" << endl;
 		return static_cast<int>(execute_result::file_creation_error);

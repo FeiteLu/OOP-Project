@@ -1,13 +1,16 @@
 #pragma once
 #include "AbstractCommand.h"
-#include "AbstractFileFactory.h"
 #include "AbstractFileSystem.h"
 
 class LSCommand : public AbstractCommand{
-	LSCommand(AbstractFileSystem*, AbstractFileFactory*);
+	LSCommand(AbstractFileSystem*);
 	virtual int execute(std::string);
-
+	virtual void displayInfo();
 private:
-	AbstractFileFactory* factory;
 	AbstractFileSystem* system;
+};
+
+enum class LS_state {
+	success = 0,
+	command_fail = 1
 };

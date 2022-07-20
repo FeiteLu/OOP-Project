@@ -13,7 +13,6 @@ public:
 	virtual int closeFile(AbstractFile* absFile) = 0;
 	virtual set<string> getFileNames() = 0;
 
-protected:
 	enum fileStuff {
 		success = 0,
 		fileExists = 1,

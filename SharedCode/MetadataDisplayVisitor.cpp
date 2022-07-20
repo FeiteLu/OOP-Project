@@ -1,6 +1,7 @@
 // definitions of metadata visitor here
 #include "MetadataDisplayVisitor.h"
 #include <iostream>
+#include <iomanip>
 
 MetadataDisplayVisitor::MetadataDisplayVisitor() {
 	type = ' ';
@@ -12,17 +13,17 @@ void MetadataDisplayVisitor::visit(ImageFile* file) {
 	type = "image";
 	name = file->getName();
 	size = file->getSize();
-	cout << "Type: " << type << endl;
-	cout << "Name: " << name << endl;
-	cout << "Size: " << size << endl;
+	cout << setw(15) << type;
+	cout << setw(15) << name;
+	cout << setw(15) << size << endl;
 }
 
 void MetadataDisplayVisitor::visit(TextFile* file) {
 	type = "text";
 	name = file->getName();
 	size = file->getSize();
-	cout << "Type: " << type << endl;
-	cout << "Name: " << name << endl;
-	cout << "Size: " << size << endl;
+	cout <<setw(15) << type;
+	cout << setw(15) << name;
+	cout << setw(15) << size << endl;
 }
 
