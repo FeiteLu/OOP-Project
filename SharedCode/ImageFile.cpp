@@ -9,27 +9,27 @@
 
 using namespace std;
 
-ImageFile::ImageFile(string s) {
+ImageFile::ImageFile(string s) { //sets name to string given and size to 0
 	name = s;
 	size = 0;
 }
 
-unsigned int ImageFile::getSize() {
+unsigned int ImageFile::getSize() { //getter for size and returns size
 	return (unsigned int)contents.size();
 }
 
-string ImageFile::getName() {
+string ImageFile::getName() { //getter for name returns name
 	return name;
 }
 
 int ImageFile::write(std::vector<char> v) {
-	if (v.size() <= 0) {
+	if (v.size() <= 0) { //checks if size is less than or equal to zero if so will return emptyinput
 		return static_cast<int>(returnType::emptyInput);
 	}
 	size = v[v.size() - 1] - '0';
 	
 		v.pop_back();
-		for (unsigned int i = 0; i < v.size(); ++i) {
+		for (unsigned int i = 0; i < v.size(); ++i) { 
 			contents.push_back(v[i]);
 			if (contents[i] != 'X' && contents[i] != ' ') {
 				contents.clear();

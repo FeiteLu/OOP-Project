@@ -14,7 +14,7 @@ PasswordProxy::~PasswordProxy() {
 	delete file;
 }
 
-string PasswordProxy::passwordPrompt() {
+string PasswordProxy::passwordPrompt() { //prompts user to enter password and takes in the input from the command line and returns it
 	
 	cout << "Type in your password." << endl;
 
@@ -26,7 +26,7 @@ string PasswordProxy::passwordPrompt() {
 
 }
 
-bool PasswordProxy::passwordCheck(string s) {
+bool PasswordProxy::passwordCheck(string s) { //checks if the string passed correlates with the password
 
 	if (s == password) {
 		return true;
@@ -37,10 +37,10 @@ bool PasswordProxy::passwordCheck(string s) {
 
 }
 
-vector<char> PasswordProxy::read() {
+vector<char> PasswordProxy::read() { 
 	
 	
-	if (passwordCheck(passwordPrompt()) == true) {
+	if (passwordCheck(passwordPrompt()) == true) { //checks if the password matches the password given and if so will read the file if not returns vec
 		return file->read();
 	}
 	else {
@@ -50,7 +50,7 @@ vector<char> PasswordProxy::read() {
 
 int PasswordProxy::write(vector<char> v) {
 	
-	if (passwordCheck(passwordPrompt()) == true) {
+	if (passwordCheck(passwordPrompt()) == true) { //checks if the password matches the password given and if so will write the file if not returns write failure
 		return file->write(v);
 	}
 	else {
@@ -62,7 +62,7 @@ int PasswordProxy::write(vector<char> v) {
 int PasswordProxy::append(vector<char> v) {
 
 
-	if (passwordCheck(passwordPrompt()) == true) {
+	if (passwordCheck(passwordPrompt()) == true) {//checks if the password matches the password given and if so will append the file if not returns append failure
 		return file->append(v);
 	}
 	else {
@@ -71,15 +71,15 @@ int PasswordProxy::append(vector<char> v) {
 
 }
 
-unsigned int PasswordProxy::getSize() {
+unsigned int PasswordProxy::getSize() { //returns the size of the file
 	return file->getSize();
 }
 
-string PasswordProxy::getName() {
+string PasswordProxy::getName() { //returns the name of the file
 	return file->getName();
 }
 
-void PasswordProxy::accept(AbstractFileVisitor* vis) {
+void PasswordProxy::accept(AbstractFileVisitor* vis) { //checks if the password matches the password given and if so will accept the file
 	
 	
 	if (passwordCheck(passwordPrompt()) == true) {
@@ -88,7 +88,7 @@ void PasswordProxy::accept(AbstractFileVisitor* vis) {
 
 }
 
-AbstractFile* PasswordProxy::clone(string new_file) {
+AbstractFile* PasswordProxy::clone(string new_file) { //clones the file with a new name and keeps the same password for the new file
 	string pwd = this->password;
 	AbstractFile* copy_file = this->file->clone(new_file);
 	AbstractFile* copy = new PasswordProxy(copy_file, pwd);

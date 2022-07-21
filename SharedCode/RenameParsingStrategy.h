@@ -5,5 +5,5 @@
 class RenameParsingStrategy : public AbstractParsingStrategy {
 public:
 	RenameParsingStrategy();
-	virtual std::vector<std::string> parse(std::string);
+	virtual std::vector<std::string> parse(std::string); //renames the file with the given string
 };

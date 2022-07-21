@@ -8,7 +8,7 @@ RemoveCommand::RemoveCommand(AbstractFileSystem* in_sys) {
 }
 
 int RemoveCommand::execute(string fileName) {
-	if (fileName != " ") {
+	if (fileName != " ") { //checks if input given is white space if not will return deletefile on the given filename if so it will return no file name
 		return system->deleteFile(fileName);
 	}
 	else {
@@ -16,7 +16,7 @@ int RemoveCommand::execute(string fileName) {
 	}
 }
 
-void RemoveCommand::displayInfo() {
+void RemoveCommand::displayInfo() { //displays information on how to run the command and the use
 	string output = "remove can remove the file from the file system, remove can be invoked with the command: remove <filename> ";
 	cout << output << endl;
 }

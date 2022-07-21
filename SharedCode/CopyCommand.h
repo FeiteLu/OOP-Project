@@ -5,14 +5,14 @@
 
 class CopyCommand : public AbstractCommand {
 public:
-	CopyCommand(AbstractFileSystem*);
-	virtual int execute(std::string);
-	virtual void displayInfo();
+	CopyCommand(AbstractFileSystem*); 
+	virtual int execute(std::string); //takes contents from one file and puts it into another 
+	virtual void displayInfo(); //holds information on how to run the program
 private:
 	AbstractFileSystem* system;
 };
 
-enum class copy_state {
+enum class copy_state { //all possible return types of the copycommand class functions
 	success = 0,
 	no_file_name_arguments = 1,
 	no_new_file_name_argument = 2,
