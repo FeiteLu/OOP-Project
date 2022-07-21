@@ -49,7 +49,7 @@ AbstractFile* SimpleFileSystem::openFile(std::string fileName) {
 	
 	if (it != files.end()) {
 		
-		if (openFiles.find((*it).second) != openFiles.end()) {
+		if (openFiles.find(it->second) != openFiles.end()) {
 			return nullptr;
 		}
 		else {

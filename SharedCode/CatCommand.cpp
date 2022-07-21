@@ -23,6 +23,7 @@ int CatCommand::execute(string file_name) {
 			AbstractFile* file;
 			file = system->openFile(file_name);
 			if (file == nullptr) {
+				system->closeFile(file);
 				return static_cast<int>(cat_state::file_not_exist);
 			}
 			vector<char> contents = file->read();
@@ -33,7 +34,7 @@ int CatCommand::execute(string file_name) {
 			cout << output << endl;
 			cout << "Enter data you would like to append to the existing file. Enter :wq to save the file and exit, enter :q to exit without saving." << endl;
 			
-			while (getline(cin, input)) {
+			while (cin>>input) {
 				if (input == ":wq") {
 					vector<char> input_vec;
 					for (char c : save_input) {
@@ -66,13 +67,14 @@ int CatCommand::execute(string file_name) {
 	AbstractFile* file;
 	file = system->openFile(file_name);
 	if (file == nullptr) {
+		system->closeFile(file);
 		return static_cast<int>(cat_state::file_not_exist);
 	}
 
 
 
 	cout << "Enter data you would like to write to the file. Enter :wq to save the file and exit, enter :q to exit without saving." << endl;
-	while (getline(cin, input)) {
+	while (cin>>input) {
 		if (input == ":wq") {
 			vector<char> input_vec;
 			for (char c : save_input) {
@@ -82,12 +84,15 @@ int CatCommand::execute(string file_name) {
 				file->write(input_vec);
 			}
 			catch (...) {
+				system->closeFile(file);
 				return static_cast<int>(cat_state::write_file_error);
 			}
+			system->closeFile(file);
 			return static_cast<int>(cat_state::success);
 		}
 
 		if (input == ":q") {
+			system->closeFile(file);
 			return static_cast<int>(cat_state::success);
 		}
 

@@ -40,6 +40,10 @@ int main()
 	cmd.addCommand("cat", new CatCommand(sys));
 	cmd.addCommand("ds", new DisplayCommand(sys));
 	cmd.addCommand("cp", new CopyCommand(sys));
+	AbstractCommand* command = new TouchCommand(sys, fac);
+	cmd.setFileFactory(fac);
+	cmd.addCommand("touch", command);
+	cmd.run();
 
 
 

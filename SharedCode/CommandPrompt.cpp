@@ -42,6 +42,7 @@ void CommandPrompt::listCommands() {
 }
 
 string CommandPrompt::prompt() {
+	cout << endl;
 	cout << "Please enter a command, 'q' to quit, 'help' for a list of commands, or 'help <command name>' for details for a specific command" << endl;
 	cout << "$    ";
 	string input;
@@ -63,40 +64,49 @@ int CommandPrompt::run() {
 			string first;
 			string second;
 			bool more_than_one_word = false;
+			bool arg = false;
 			for (char s : user_command) {
 				if (s == ' ') {
-					more_than_one_word = true;
-					istringstream iss(user_command);
-					iss >> first;
-					if (first == "help") {
-						iss >> second;
-						if (map.find(second) != map.end()) {
-							map.at(second)->displayInfo();
+					arg = true;
+
+				}
+
+			}
+
+			if (arg == true) {
+
 				
-						}
-						else {
-							cout << "Command does not exist." << endl;
+				more_than_one_word = true;
+				istringstream iss(user_command);
+				iss >> first;
+				if (first == "help") {
+					iss >> second;
+					if (map.find(second) != map.end()) {
+						map.at(second)->displayInfo();
+
+					}
+					else {
+						cout << "Command does not exist." << endl;
+					}
+				}
+				else {
+					if (map.find(first) != map.end()) {
+						string temp;
+						iss >> temp;
+						second = temp;
+						if (second != " ") {
+							while (iss >> temp) {
+								second += " ";
+								second += temp;
+							}
+
+							if (map.at(first)->execute(second) == static_cast<int>(command_output::error)) {
+								cout << "An error has occured" << endl;
+							}
 						}
 					}
 					else {
-						if (map.find(first) != map.end()) {
-							string temp;
-							iss >> temp;
-							second = temp;
-							if(second != " "){
-								while (iss >> temp) {
-									second += " ";
-									second += temp;
-								}
-
-								if (map.at(first)->execute(second) == static_cast<int>(command_output::error)) {
-									cout << "An error has occured" << endl;
-								}
-							}
-						}
-						else {
-							cout << "Command does not exist" << endl;
-						}
+						cout << "Command does not exist" << endl;
 					}
 				}
 			}
