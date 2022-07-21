@@ -1,3 +1,6 @@
+/*File Name : Lab5.cpp
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 // Lab5.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 #include "..\..\SharedCode\AbstractCommand.h"
@@ -26,14 +29,14 @@ int main()
 	macro->setParseStrategy(new RenameParsingStrategy());
 	CommandPrompt cmd;
 	cmd.setFileSystem(sys);
-	cmd.addCommand("rn", macro);
+	cmd.addCommand("rn", macro); //add rename command through macro command
 
 
 	MacroCommand* macro2 = new MacroCommand(sys);
 	macro2->addCommand(new TouchCommand(sys, fac));
 	macro2->addCommand(new CatCommand(sys));
 	macro2->setParseStrategy (new CreateEditParsingStrategy());
-	cmd.addCommand("ce", macro2);
+	cmd.addCommand("ce", macro2); //add create-edit command through macro command
 
 	cmd.addCommand("ls", new LSCommand(sys));
 	cmd.addCommand("rm", new RemoveCommand(sys));
@@ -43,7 +46,7 @@ int main()
 	AbstractCommand* command = new TouchCommand(sys, fac);
 	cmd.setFileFactory(fac);
 	cmd.addCommand("touch", command);
-	cmd.run();
+	cmd.run(); //ran command prompt for tests
 
 
 
