@@ -1,3 +1,6 @@
+/*File Name : RemoveCommand.cpp
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 #include "RemoveCommand.h"
 #include <iostream>
 

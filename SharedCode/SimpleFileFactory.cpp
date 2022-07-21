@@ -1,3 +1,6 @@
+/*File Name : SimpleFileFactory.cpp
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 // studio 18 - simple file factory definitions
 #include "AbstractFileSystem.h"
 #include "SimpleFileFactory.h"

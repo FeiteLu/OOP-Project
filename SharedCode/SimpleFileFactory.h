@@ -1,3 +1,6 @@
+/*File Name : SimpleFileFactory.h
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 #pragma once
 #include "AbstractFileFactory.h" 
 // Studio 18 - simplefilefactory class declaration goes here

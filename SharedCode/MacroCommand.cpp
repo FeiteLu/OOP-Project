@@ -1,3 +1,6 @@
+/*File Name : MacroCommand.cpp
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 #include "MacroCommand.h"
 #include <iostream>
 

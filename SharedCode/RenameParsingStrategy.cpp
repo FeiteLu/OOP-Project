@@ -1,6 +1,9 @@
 #include "RenameParsingStrategy.h"
 #include "AbstractCommand.h"
 #include "CopyCommand.h"
+/*File Name : RenameParsingStrategy.cpp
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 #include "RemoveCommand.h"
 #include "AbstractFileSystem.h"
 #include <string>

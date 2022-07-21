@@ -1,3 +1,6 @@
+/*File Name : TextFile.h
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 #pragma once
 #include <vector>
 #include <string>

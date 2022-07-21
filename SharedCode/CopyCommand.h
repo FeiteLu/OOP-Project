@@ -1,3 +1,6 @@
+/*File Name : CopyCommand.h
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 #pragma once
 #include "AbstractCommand.h"
 #include "AbstractFileSystem.h"

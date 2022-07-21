@@ -1,3 +1,6 @@
+/*File Name : CreateEditParsingStrategy.h
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 #pragma once
 #include "..\..\SharedCode\AbstractParsingStrategy.h"
 #include "..\..\SharedCode\AbstractFileSystem.h"

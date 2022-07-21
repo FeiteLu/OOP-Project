@@ -1,3 +1,6 @@
+/*File Name : TextFile.cpp
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 //  Define the TextFile class here
 #include "TextFile.h"
 #include <vector>

@@ -1,3 +1,6 @@
+/*File Name : CreateEditParsingStrategy.cpp
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 #include "CreateEditParsingStrategy.h"
 #include <vector>
 #include <string>

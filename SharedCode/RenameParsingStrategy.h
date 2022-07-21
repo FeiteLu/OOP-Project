@@ -1,3 +1,6 @@
+/*File Name : RenameParsingStrategy.h
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 #pragma once
 #include "AbstractParsingStrategy.h"
 #include "AbstractFileSystem.h"

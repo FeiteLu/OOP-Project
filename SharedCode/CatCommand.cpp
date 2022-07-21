@@ -1,3 +1,6 @@
+/*File Name : CatCommand.cpp
+Email : feite@wustl.edu & k.morrow@wustl.edu
+Author : Feite Lu, Klein Morrow */
 #include "CatCommand.h"
 #include <iostream>
 #include <sstream>
