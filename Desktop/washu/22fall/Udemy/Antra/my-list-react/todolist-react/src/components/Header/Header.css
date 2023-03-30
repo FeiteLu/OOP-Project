@@ -1,0 +1,14 @@
+.nav {
+  background-color: bisque;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+li:hover {
+  cursor: pointer;
+}

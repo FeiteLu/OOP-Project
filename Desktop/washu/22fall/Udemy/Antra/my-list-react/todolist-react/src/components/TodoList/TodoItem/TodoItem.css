@@ -1,0 +1,19 @@
+.todoitem {
+  list-style: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 350px;
+  padding: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todoitem-content {
+  flex-grow: 1;
+}
+
+.btn-delete {
+  margin-left: 5px;
+}

@@ -1,0 +1,39 @@
+.todolist {
+  width: 800px;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid black;
+  border-radius: 5px;
+  min-height: 400px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.todolist-input {
+  margin-right: 20px;
+}
+
+.todolist-lists {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.todolist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 850px) {
+  .todolist {
+    width: 400px;
+  }
+  .todolist-lists {
+    flex-direction: column;
+  }
+}

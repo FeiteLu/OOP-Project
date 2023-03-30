@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import TodoList from "./components/TodoList/TodoList";
+import Layout from "./components/Layout/Layout";
+import Dashboard from "./components/Dashboard/Dashboard";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    activePage: "Dashboard",
+  };
+
+  handleChangeActivePage = (newActivePage) => {
+    console.log(newActivePage);
+    this.setState({
+      activePage: newActivePage,
+    });
+  };
+
+  render() {
+    let content = null;
+    switch (this.state.activePage) {
+      case "Dashboard":
+        content = <Dashboard />;
+        break;
+      case "TodoList":
+        content = <TodoList />;
+        break;
+      default:
+        break;
+    }
+
+    return (
+      <Layout handleChangeActivePage={this.handleChangeActivePage}>
+        {content}
+      </Layout>
+    );
+  }
 }
 
 export default App;
