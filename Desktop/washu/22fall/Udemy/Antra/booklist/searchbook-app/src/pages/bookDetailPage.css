@@ -1,0 +1,34 @@
+.book-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.book-details h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.book-details img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.book-details p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    .book-details {
+        padding: 40px;
+    }
+
+    .book-details img {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
